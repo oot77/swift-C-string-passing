@@ -12,6 +12,8 @@
 		834842131C20AF2A004F0C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834842111C20AF2A004F0C5A /* Main.storyboard */; };
 		834842151C20AF2A004F0C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834842141C20AF2A004F0C5A /* Assets.xcassets */; };
 		834842181C20AF2A004F0C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834842161C20AF2A004F0C5A /* LaunchScreen.storyboard */; };
+		834842211C20AF63004F0C5A /* collectPrintfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 834842201C20AF63004F0C5A /* collectPrintfs.c */; };
+		83824FC81C2141B8005A285F /* CStringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83824FC71C2141B8005A285F /* CStringArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		834842141C20AF2A004F0C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		834842171C20AF2A004F0C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		834842191C20AF2A004F0C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8348421F1C20AF63004F0C5A /* collectprintfs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "collectprintfs-Bridging-Header.h"; sourceTree = "<group>"; };
+		834842201C20AF63004F0C5A /* collectPrintfs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = collectPrintfs.c; sourceTree = "<group>"; };
+		83824FC71C2141B8005A285F /* CStringArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStringArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +43,11 @@
 		834842011C20AF2A004F0C5A = {
 			isa = PBXGroup;
 			children = (
+				834842201C20AF63004F0C5A /* collectPrintfs.c */,
+				83824FC71C2141B8005A285F /* CStringArray.swift */,
 				8348420C1C20AF2A004F0C5A /* collectprintfs */,
 				8348420B1C20AF2A004F0C5A /* Products */,
+				8348421F1C20AF63004F0C5A /* collectprintfs-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				834842101C20AF2A004F0C5A /* ViewController.swift in Sources */,
+				834842211C20AF63004F0C5A /* collectPrintfs.c in Sources */,
+				83824FC81C2141B8005A285F /* CStringArray.swift in Sources */,
 				8348420E1C20AF2A004F0C5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,10 +259,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = collectprintfs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.thgr.collectprintfs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "collectprintfs-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +273,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = collectprintfs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.thgr.collectprintfs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "collectprintfs-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +301,7 @@
 				8348421E1C20AF2A004F0C5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

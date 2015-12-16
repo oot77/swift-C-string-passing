@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  collectprintfs
 //
-//  Created by Thomas on 15.12.15.
+//  Created by thgr on 15.12.15.
 //  Copyright © 2015 thgr. All rights reserved.
 //
 

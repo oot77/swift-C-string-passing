@@ -2,24 +2,36 @@
 //  ViewController.swift
 //  collectprintfs
 //
-//  Created by Thomas on 15.12.15.
+//  Created by thgr on 15.12.15.
 //  Copyright © 2015 thgr. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class tViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var displayReturnStringTextView: UITextView!
+    
+    var myArgs = CStringArray(["runIT", "hi", "there", "!"])
+
+    @IBOutlet weak var argvTextInput: UITextField!
+    @IBAction func argvTextInputReturn(sender: UITextField) {
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func tRun(sender: UIButton) {
+        //displayReturnStringTextView.text = "Hi there"
+        if let argv = argvTextInput.text {
+            myArgs=CStringArray(argv.characters.split{$0 == " "}.map(String.init))
+        }
+        
+        let returnedString = tmain(myArgs.numberOfElements, &myArgs.pointers[0])
 
+        if let tReturns = String.fromCString(returnedString) {
+            displayReturnStringTextView.text = tReturns
+        }
+
+        tFreeMemory()
+    }
 
 }
 

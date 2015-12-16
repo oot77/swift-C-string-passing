@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="tViewController" customModule="collectprintfs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xab-N2-yFE">
+                                <rect key="frame" x="20" y="28" width="560" height="458"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hzs-6G-4X8">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="458"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Output from C will be put here after pressing the &quot;RUN NOW&quot; button below ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nfZ-Wl-DCF">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="458"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="458" id="bFh-Is-cnN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-fy-aCc">
+                                <rect key="frame" x="20" y="530" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="s0N-pP-CEr"/>
+                                </constraints>
+                                <state key="normal" title="RUN NOW :-)"/>
+                                <connections>
+                                    <action selector="tRun:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XMt-Ob-dne"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter &quot;commandline args&quot; here =&gt; pass to C ..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdL-Z6-I7v">
+                                <rect key="frame" x="20" y="492" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="argvTextInputReturn:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Q6c-gl-OcA"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="jdL-Z6-I7v" secondAttribute="leading" id="1zg-TY-icB"/>
+                            <constraint firstItem="xJP-fy-aCc" firstAttribute="leading" secondItem="jdL-Z6-I7v" secondAttribute="leading" id="84j-J8-ent"/>
+                            <constraint firstItem="xab-N2-yFE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DVD-bC-1mj"/>
+                            <constraint firstItem="xab-N2-yFE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ajI-Xa-duT"/>
+                            <constraint firstItem="jdL-Z6-I7v" firstAttribute="top" secondItem="nfZ-Wl-DCF" secondAttribute="bottom" constant="6" id="bpB-Mu-7JU"/>
+                            <constraint firstItem="xJP-fy-aCc" firstAttribute="trailing" secondItem="jdL-Z6-I7v" secondAttribute="trailing" id="gYa-Ot-8eQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jdL-Z6-I7v" secondAttribute="trailing" id="nIZ-vy-1d2"/>
+                            <constraint firstAttribute="bottom" secondItem="xJP-fy-aCc" secondAttribute="bottom" constant="20" symbolic="YES" id="qMB-PW-iEP"/>
+                            <constraint firstItem="xJP-fy-aCc" firstAttribute="leading" secondItem="xab-N2-yFE" secondAttribute="leading" id="w1e-A7-2mK"/>
+                            <constraint firstItem="xJP-fy-aCc" firstAttribute="top" secondItem="jdL-Z6-I7v" secondAttribute="bottom" constant="8" symbolic="YES" id="z0M-9h-W2F"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bpB-Mu-7JU"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="argvTextInput" destination="jdL-Z6-I7v" id="xhv-9I-Oq6"/>
+                        <outlet property="displayReturnStringTextView" destination="nfZ-Wl-DCF" id="eVL-z2-TaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="363"/>
         </scene>
     </scenes>
 </document>
